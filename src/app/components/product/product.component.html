@@ -1,8 +1,8 @@
 <ul class="producto-list">
   <li>
     <div class="producto-imagen-container">
-      <img *ngIf="producto.cantidad > 1" class="producto-imagen over-imagen" [src]="producto.imagen"
-        [alt]="producto.nombre" (mouseenter)="togleHover()" (mouseleave)="togleHover()">
+      <img *ngIf="producto.cantidad > 1" class="producto-imagen over-imagen" [class.zoomOut]="zoom"
+        [src]="producto.imagen" [alt]="producto.nombre" (mouseenter)="togleHover()" (mouseleave)="togleHover()">
       <img *ngIf="producto.cantidad <= 1" class="producto-imagen over-imagen opaco" [src]="producto.imagen"
         [alt]="producto.nombre">
     </div>

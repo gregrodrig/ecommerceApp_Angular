@@ -1,0 +1,15 @@
+<ng-container *ngIf="!products">
+  <h2 class="titulo-principal carrito-section">No se han podido cargar los productos</h2>
+</ng-container>
+<ng-container *ngIf="products">
+  <h2 class="titulo-principal">
+    {{ !categoriaSeleccionada ? 'Todos los productos' : categoriaSeleccionada }}
+  </h2>
+  <div *ngIf="products" class="contenedor-productos">
+    <div *ngFor="let product of products">
+      <ng-container *ngIf="product.categoria.nombre.includes(categoriaSeleccionada)">
+      </ng-container>
+      <app-product (productoClicado)="clickProduct($event)" [producto]="product" />
+    </div>
+  </div>
+</ng-container>

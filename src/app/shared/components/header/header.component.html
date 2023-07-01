@@ -1,0 +1,9 @@
+<header>
+  <h1 class="logo">Greco Shoppin</h1>
+  <div class="contenedor-paginas-menu">
+    <button *ngIf="home" id="atras" (click)="goBack()">Ir Atrás</button>
+    <a *ngIf="!home" class="botonMenu">Categoria</a>
+    <a *ngIf="!home" class="botonMenu">Prodcuto</a>
+    <a *ngIf="!home" class="botonMenu" routerLink="/stock" (click)="home = true">Stock</a>
+  </div>
+</header>

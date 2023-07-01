@@ -1,0 +1,30 @@
+<section id="carrito-section" class="carrito-section">
+  <h2 class="titulo-principal">Carrito</h2>
+  <div id="contenedor-carrito" class="contenedor-carrito">
+    <div id="carrito-productos" class="carrito-productos">
+      <div class="carrito-producto" *ngFor="let product of products">
+        <img class="carrito-producto-imagen" [src]="product.articulo.imagen" alt="" />
+        <div class="carrito-producto-titulo">
+          <small>Titulo</small>
+          <h5>{{ product.articulo.nombre }}</h5>
+        </div>
+        <div class="carrito-producto-cantidad">
+          <small>Cantidad</small>
+          <p>{{ product.cantidad }}</p>
+        </div>
+        <div class="carrito-producto-precio">
+          <small>Precio</small>
+          <p>$ {{ product.articulo.precio }}</p>
+        </div>
+        <div class="carrito-producto-subtotal">
+          <small>Subtotal</small>
+          <p>$ {{ product.articulo.precio * product.cantidad }}</p>
+        </div>
+        <button [id]="product.articuloId" class="carrito-producto-eliminar">
+          <!-- ICON -->
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

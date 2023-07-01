@@ -1,0 +1,12 @@
+<nav class="menu-contenedor">
+  <ul class="menu">
+    <li id="todos" class="boton-menu boton-categoria">Todos los productos</li>
+    <li>
+      <div id="contenedor-botones" class="contenedor-botones"></div>
+    </li>
+    <li>
+      <a routerLink="#carrito-section" class="boton-menu boton-carrito"><i
+          class="bi bi-cart-check-fill"></i>Carrito<span id="numerito" class="numerito">{{total$ | async}}</span></a>
+    </li>
+  </ul>
+</nav>

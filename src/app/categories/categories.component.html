@@ -1,0 +1,24 @@
+<nav class="menu-contenedor">
+  <ul class="menu">
+    <li>
+      <button (click)="selectedCategory('')" id="todos" class="boton-menu boton-categoria"
+        [class.active]="'' === filter">
+        <i class="bi bi-hand-index">Todos los productos</i>
+      </button>
+      <!-- CATEGORIAS -->
+      <div *ngIf="!categoria">No Categoria</div>
+      <div *ngIf="categoria">
+        <button *ngFor="let category of categoria" (click)="selectedCategory(category.nombre)" id="todos"
+          class="boton-menu boton-categoria" [class.active]="category.nombre === filter">
+          <i class="bi bi-hand-index">{{ category.nombre }}</i>
+        </button>
+      </div>
+    </li>
+    <li>
+      <a routerLink="#carrito-section" class="boton-menu boton-carrito"><i
+          class="bi bi-cart-check-fill"></i>Carrito<span id="numerito" class="numerito">0
+          <!-- {{total$ | async}} -->
+        </span></a>
+    </li>
+  </ul>
+</nav>

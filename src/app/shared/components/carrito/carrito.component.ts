@@ -9,6 +9,7 @@ import { CartService } from '../../../core/services/cart/cart.service';
 })
 export class CarritoComponent implements OnInit {
   products: CarritoModel[] = [];
+  totalAPagar = 0;
 
   constructor(private cartService: CartService) {}
 
@@ -19,6 +20,25 @@ export class CarritoComponent implements OnInit {
   fetchCarrito() {
     this.cartService.getCarrito().subscribe((productos) => {
       this.products = productos;
+    });
+  }
+  emptyCarrito() {
+    this.cartService.emptyCart().subscribe(() => {
+      this.products = [];
+      console.log('Carrito vacio');
+    });
+  }
+
+  deleteProductCart(id: number) {
+    this.cartService.deleteProductCart(id).subscribe(() => {
+      this.fetchCarrito();
+    });
+  }
+
+  shopCart() {
+    this.cartService.shopCart().subscribe(() => {
+      this.emptyCarrito();
+      console.log('Compra realizada');
     });
   }
 }

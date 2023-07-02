@@ -19,7 +19,13 @@ export class ProductComponent {
   }
 
   agregarCarrito() {
-    this.cartService.addCart(this.producto);
-    console.log('Anadido el producto al carrito');
+    this.cartService.addCart(this.producto.id).subscribe(
+      () => {
+        console.log('Anadido el producto al carrito');
+      },
+      (error) => {
+        console.error('Error al agregar el producto al carrito', error);
+      }
+    );
   }
 }

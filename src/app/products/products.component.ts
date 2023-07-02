@@ -3,6 +3,7 @@ import { ProductModel } from '../models/product.model';
 import { ProductsService } from './../core/services/products/products.service';
 import { TitleCategoryService } from '../core/services/titleCategory/title-category.service';
 import { CartService } from '../core/services/cart/cart.service';
+import { CarritoModel } from '../models/carrito.model';
 
 @Component({
   selector: 'app-products',
@@ -11,6 +12,7 @@ import { CartService } from '../core/services/cart/cart.service';
 })
 export class ProductsComponent implements OnInit {
   products: ProductModel[] = [];
+  cart: CarritoModel[] = [];
   categoriaSeleccionada: string = 'Todos los productos';
 
   constructor(
@@ -34,7 +36,7 @@ export class ProductsComponent implements OnInit {
   }
 
   clickProduct(producto: ProductModel) {
-    this.cartService.addCart(producto);
+    this.cartService.addCart(producto.id);
   }
 
   filterProductsByCategory() {

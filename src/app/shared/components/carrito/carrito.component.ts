@@ -34,16 +34,15 @@ export class CarritoComponent implements OnInit {
     });
   }
 
-  deleteProductCart(id: number) {
-    this.cartService.deleteProductCart(id).subscribe(() => {
+  deleteProductCart(idProducto: number) {
+    this.cartService.deleteProductCart(idProducto).subscribe(() => {
       this.fetchCarrito();
     });
   }
 
   shopCart() {
-    this.cartService.shopCart().subscribe(() => {
-      this.emptyCarrito();
-      console.log('Compra realizada');
-    });
+    this.cartService.shopCart();
+    this.emptyCarrito();
+    this.ngOnInit();
   }
 }

@@ -20,7 +20,8 @@
           <small>Subtotal</small>
           <p>$ {{ product.articulo.precio * product.cantidad }}</p>
         </div>
-        <button [id]="product.articuloId" class="carrito-producto-eliminar">
+        <button [id]="product.articuloId" class="carrito-producto-eliminar"
+          (click)="deleteProductCart(product.articuloId)">
           <!-- ICON -->
           <i class="fas fa-trash"></i>
         </button>

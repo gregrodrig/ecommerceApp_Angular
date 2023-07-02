@@ -9,12 +9,17 @@ import { CartService } from '../../../core/services/cart/cart.service';
 })
 export class CarritoComponent implements OnInit {
   products: CarritoModel[] = [];
+  cart: CarritoModel[] = [];
   totalAPagar = 0;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.fetchCarrito();
+    this.cartService.cart$.subscribe((cart) => {
+      this.cart = cart;
+      this.products = cart;
+    });
   }
 
   fetchCarrito() {

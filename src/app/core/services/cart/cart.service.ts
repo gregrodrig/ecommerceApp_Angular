@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, forkJoin } from 'rxjs'; //ANADE PRINCIPIOS REACTIVOS A NUESTRA APP@ANGULAR.
+import { BehaviorSubject } from 'rxjs'; //ANADE PRINCIPIOS REACTIVOS A NUESTRA APP@ANGULAR.
 import { CarritoModel } from './../../../models/carrito.model';
-import { ProductModel } from './../../../models/product.model';
 import { environment } from './../../../../environments/environment';
-import { tap, switchMap, map } from 'rxjs/operators';
+import { tap, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -61,35 +60,11 @@ export class CartService {
       );
   }
 
-  shopCart() {
-    const requests = this.cart.value.map((producto) => {
-      return this.http.put(
-        `Articulo/${producto.articuloId}/decrementar-cantidad/${producto.cantidad}`,
-        null
-      );
-    });
-    console.log(requests);
-    forkJoin(requests).pipe(
-      map(() => {
-        this.emptyCart();
-      })
+  shopCart(producto: any) {
+    return this.http.post(
+      `${environment.URL_API}Articulo/${producto.articuloId}/decrementar-cantidad/${producto.cantidad}`,
+      null
     );
-
-    // .subscribe(() => this.cart.next([]));
-    // console.log('soy el shopCart del archivo cart.service.ts');
-    // const requests = this.cart.value.map((producto) => {
-    //   return this.http.put(
-    //     `Articulo/${producto.articuloId}/decrementar-cantidad/${producto.cantidad}`,
-    //     null
-    //   );
-    // });
-    // return forkJoin(requests).pipe(
-    //   switchMap(() => this.emptyCart()), // Vaciar el carrito después de decrementar la cantidad
-    //   tap(() => {
-    //     this.cart.next([]); // Vaciar el BehaviorSubject 'cart'
-    //     this.products = []; // Vaciar el arreglo de productos
-    //   })
-    // );
   }
 
   deleteProductCart(idProducto: number) {

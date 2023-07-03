@@ -27,11 +27,14 @@ export class ProductsComponent implements OnInit {
       this.categoriaSeleccionada = title;
       this.filterProductsByCategory();
     });
+    this.productsService.checkProducts().subscribe((res: any) => {
+      this.products = res;
+    });
   }
 
   fetchProducts() {
     this.productsService.getAllProducts().subscribe((products) => {
-      this.products = products;
+      this.productsService.updateProductList(products);
     });
   }
 

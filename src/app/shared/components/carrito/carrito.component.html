@@ -36,9 +36,9 @@
       <div className="carrito-acciones-derecha">
         <div className="carrito-acciones-total">
           <p>Total:</p>
-          <p id="total">{{totalAPagar | currency:'EUR':true}}</p>
+          <p id="total">{{ totalAPagar | currency:'EUR':true }}</p>
         </div>
-        <button id="carrito-acciones-comprar" class="carrito-acciones-comprar" (click)="shopCart()">
+        <button id="carrito-acciones-comprar" class="carrito-acciones-comprar" (click)="shopCart(products)">
           Comprar ahora
         </button>
       </div>

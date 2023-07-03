@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarritoModel } from '../../../models/carrito.model';
 import { CartService } from '../../../core/services/cart/cart.service';
+import { ProductsService } from 'src/app/core/services/products/products.service';
 
 @Component({
   selector: 'app-carrito',
@@ -12,19 +13,31 @@ export class CarritoComponent implements OnInit {
   cart: CarritoModel[] = [];
   totalAPagar = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private productsService: ProductsService
+  ) {}
 
   ngOnInit(): void {
     this.fetchCarrito();
     this.cartService.cart$.subscribe((cart) => {
       this.cart = cart;
       this.products = cart;
+      this.calcularTotalAPagar();
     });
+  }
+
+  calcularTotalAPagar(): void {
+    this.totalAPagar = this.products.reduce(
+      (total, producto) => total + producto.articulo.precio * producto.cantidad,
+      0
+    );
   }
 
   fetchCarrito() {
     this.cartService.getCarrito().subscribe((productos) => {
       this.products = productos;
+      this.calcularTotalAPagar();
     });
   }
   emptyCarrito() {
@@ -40,9 +53,22 @@ export class CarritoComponent implements OnInit {
     });
   }
 
-  shopCart() {
-    this.cartService.shopCart();
-    this.emptyCarrito();
-    this.ngOnInit();
+  shopCart(products: any) {
+    let x = 0;
+    products.forEach((product: CarritoModel) => {
+      this.cartService.shopCart(product).subscribe((res) => {});
+      x++;
+      if (products.length === x) {
+        this.emptyCarrito();
+        this.fetchProducts();
+        //activa el mensaje aqui
+      }
+    });
+  }
+
+  fetchProducts() {
+    this.productsService.getAllProducts().subscribe((res: any) => {
+      this.productsService.updateProductList(res);
+    });
   }
 }

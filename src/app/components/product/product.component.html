@@ -3,15 +3,15 @@
     <div class="producto-imagen-container">
       <img *ngIf="producto.cantidad > 1" class="producto-imagen over-imagen" [class.zoomOut]="zoom"
         [src]="producto.imagen" [alt]="producto.nombre" (mouseenter)="togleHover()" (mouseleave)="togleHover()">
-      <img *ngIf="producto.cantidad <= 1" class="producto-imagen over-imagen opaco" [src]="producto.imagen"
-        [alt]="producto.nombre">
+      <img *ngIf="producto.cantidad <= 1" class="producto-imagen over-imagen" [class.opaco]="producto.cantidad <= 0"
+        [src]="producto.imagen" [alt]="producto.nombre">
     </div>
     <div class="producto-detalles">
       <h3 class="producto-titulo">{{ producto.nombre }}</h3>
       <p class="producto-stock">Stock: {{ producto.cantidad }}</p>
       <p class="producto-precio">{{producto.precio | currency:'EUR':true}}</p>
       <p class="producto-precio">{{producto.descripcion | slice:0:20}}</p>
-      <button *ngIf="producto.cantidad > 1" class="producto-agregar" (click)="agregarCarrito()">Agregar</button>
+      <button *ngIf="producto.cantidad >= 1" class="producto-agregar" (click)="agregarCarrito()">Agregar</button>
     </div>
   </li>
 </ul>

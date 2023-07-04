@@ -61,7 +61,7 @@ export class CartService {
   }
 
   shopCart(producto: any) {
-    return this.http.post(
+    return this.http.put(
       `${environment.URL_API}Articulo/${producto.articuloId}/decrementar-cantidad/${producto.cantidad}`,
       null
     );

@@ -12,6 +12,8 @@ export class CarritoComponent implements OnInit {
   products: CarritoModel[] = [];
   cart: CarritoModel[] = [];
   totalAPagar = 0;
+  showMessage = false;
+  message = 'Muchas gracias por su compra!';
 
   constructor(
     private cartService: CartService,
@@ -60,8 +62,11 @@ export class CarritoComponent implements OnInit {
       x++;
       if (products.length === x) {
         this.emptyCarrito();
-        this.fetchProducts();
-        //activa el mensaje aqui
+        this.showMessage = true;
+        setTimeout(() => {
+          this.showMessage = false;
+          this.fetchProducts();
+        }, 3000);
       }
     });
   }

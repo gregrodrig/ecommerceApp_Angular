@@ -347,3 +347,13 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+/* @media (min-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  .contenedor-productos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    grid-auto-rows: minmax(100px, auto);
+  }
+} */

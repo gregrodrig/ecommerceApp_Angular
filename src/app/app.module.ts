@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './components/product/product.component';
 
@@ -13,6 +13,7 @@ import { CoreModule } from './core/core.module';
 import { LayoutComponent } from './layout/layout.component';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { StockComponent } from './stock/stock.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { CategoriesComponent } from './categories/categories.component';
     LayoutComponent,
     CategoryComponent,
     CategoriesComponent,
+    StockComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { CategoriesComponent } from './categories/categories.component';
     HttpClientModule,
     SharedModule,
     CoreModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

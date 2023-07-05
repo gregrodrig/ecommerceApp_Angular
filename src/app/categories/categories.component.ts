@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CategoryModel } from '../models/category.model';
 import { CategoriesService } from '../core/services/categories/categories.service';
 import { TitleCategoryService } from '../core/services/titleCategory/title-category.service';
-import { ProductsService } from '../core/services/products/products.service';
 import { ProductModel } from '../models/product.model';
 
 @Component({
@@ -18,8 +17,7 @@ export class CategoriesComponent implements OnInit {
 
   constructor(
     private categoryService: CategoriesService,
-    private titleCategoryService: TitleCategoryService,
-    private productsService: ProductsService
+    private titleCategoryService: TitleCategoryService
   ) {}
 
   ngOnInit() {

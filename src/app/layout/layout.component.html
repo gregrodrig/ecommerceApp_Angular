@@ -1,11 +1,15 @@
 <div class="wrapper">
   <aside>
     <app-header />
-    <app-categories />
+    <ng-container *ngIf="isHomeOrProductsPage()">
+      <app-categories />
+    </ng-container>
     <app-footer />
   </aside>
   <main>
     <router-outlet></router-outlet>
   </main>
-  <app-carrito />
+  <ng-container *ngIf="isHomeOrProductsPage()">
+    <app-carrito />
+  </ng-container>
 </div>

@@ -45,4 +45,10 @@ export class ProductsService {
   deleteProduct(id: number) {
     return this.http.delete(`${environment.URL_API}${id}`);
   }
+  increadeProduct(idProduct: number, amountProduct: number) {
+    return this.http.put(
+      `${environment.URL_API}Articulo/${idProduct}/aumentar-cantidad/${amountProduct}`,
+      null
+    );
+  }
 }

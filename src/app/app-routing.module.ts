@@ -3,6 +3,7 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { LayoutComponent } from './layout/layout.component';
+import { StockComponent } from './stock/stock.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'productos',
         component: ProductsComponent,
+      },
+      {
+        path: 'stock',
+        component: StockComponent,
       },
     ],
   },

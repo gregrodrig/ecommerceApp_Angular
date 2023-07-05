@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   home: boolean = false;
+
   goBack() {
     this.home = false;
+    history.back();
   }
 }

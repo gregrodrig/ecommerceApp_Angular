@@ -14,6 +14,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { StockComponent } from './stock/stock.component';
+
 @NgModule({
   declarations: [
     AppComponent,

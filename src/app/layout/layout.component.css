@@ -1,0 +1,24 @@
+:root {
+  /* COLOR */
+  --clr-main: #646cff;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    background: var(--clr-main);
+  }
+  .main {
+    margin-right: 0.5rem;
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 1366px) {
+  .main {
+    margin-right: 0.5rem;
+    padding: 3rem 1rem;
+  }
+  .wrapper {
+    background: var(--clr-main);
+  }
+}

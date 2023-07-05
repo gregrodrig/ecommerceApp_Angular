@@ -1,1 +1,27 @@
-
+@media (max-width: 768px) {
+  #carrito-section {
+    min-width: 0;
+    margin: 1rem 0.5rem;
+  }
+  .titulo-principal {
+    font-size: x-large;
+  }
+}
+@media (max-width: 1366px) {
+  #carrito-section {
+    min-width: 0;
+    margin: 1rem 0.5rem;
+  }
+  .titulo-principal {
+    font-size: x-large;
+  }
+  .carrito-productos {
+    font-size: small;
+  }
+  .carrito-producto-titulo h5 {
+    font-size: medium;
+  }
+  .carrito-producto-imagen {
+    width: 3rem;
+  }
+}
